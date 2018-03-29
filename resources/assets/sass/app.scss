@@ -1,0 +1,41 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  background-color: #ffffff;
+}
+
+.navbar-circular {
+  background-color: #fff;
+  border-bottom: 0.5px solid #eeeeee;
+}
+
+.border-radius-0 {
+  border-radius: 0;
+}
+
+.btn-outline-dark, .btn-outline-dark:hover {
+  background-color: transparent;
+  border: 1px solid #636b6f;
+  color: #636b6f;
+}
+
+.title-big {
+  font-size: 84px;
+}
+
+.text-dark {
+  color: #636b6f;
+}
+
+.sans_serif-100 {
+  font-family: $font-family-sans-serif;
+  font-weight: 100;
+}

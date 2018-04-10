@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Route;
 
 class Settings extends Model
 {
@@ -10,6 +11,15 @@ class Settings extends Model
     protected $primaryKey = 'name';
     public $incrementing = false;
     protected $table = 'settings';
+
+    public static function webRoutes() {
+        Route::get('/admin/settings', "SettingsController@index");
+        Route::get('/admin/settings/{category}', "SettingsController@show");
+        Route::post('/admin/settings/{category}', "SettingsController@store");
+        Route::delete('/admin/settings/{category}/{id}', "SettingsController@destroy");
+        Route::patch('/admin/settings/{category}/{id}', "SettingsController@update");
+    }
+
 
     public static function get(string $name) {
         $s = Settings::find($name);

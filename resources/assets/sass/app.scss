@@ -1,15 +1,25 @@
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:100,300,400,600");
+@import url("https://use.fontawesome.com/releases/v5.0.9/css/all.css");
 
 // Variables
 @import "variables";
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bulma";
 
 body {
   background-color: #ffffff;
+}
+
+code {
+  display: block;
+  color: #1c1c1c;
+  white-space: pre-wrap;
+}
+
+input.input[type=number] {
+  max-width: 80px;
 }
 
 .navbar-circular {
@@ -27,6 +37,28 @@ body {
   color: #636b6f;
 }
 
+.is-undecored {
+  text-decoration: none !important;
+}
+
+.button.is-text {
+  &.has-text-white {
+    color: rgba(255,255,255,0.8) !important;
+    &:hover {
+      color: #ffffff !important;
+    }
+  }
+  &:hover, &:active, &:focus {
+    background-color: inherit !important;
+  }
+
+
+}
+
+.margin-thin {
+  margin: 2px;
+}
+
 .title-big {
   font-size: 84px;
 }
@@ -35,7 +67,132 @@ body {
   color: #636b6f;
 }
 
+.sans_serif {
+  font-family: $font-family-sans-serif;
+}
+
 .sans_serif-100 {
   font-family: $font-family-sans-serif;
   font-weight: 100;
+}
+
+.ultralight {
+  font-weight: 100 !important;
+}
+
+.thin {
+  font-weight: 300;
+}
+
+.light {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.settings-section {
+  padding: 0 24px !important;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 25px;
+  text-transform: uppercase;
+  padding: 10px 0;
+  margin:0;
+}
+
+.padding-sibling-normal {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.padding-sibling-normal {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.is-half-width {
+  width: 50vw;
+}
+
+.hero-foot {
+  nav {
+    &.tabs {
+      .container {
+        ul {
+          li {
+            text-transform: uppercase;
+            padding: 5px;
+            &.is-active {
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+            a {
+              text-decoration: none;
+              border-bottom: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.searchbar {
+  &.settings-searchbar {
+    .control {
+      input.input {
+        background-color: transparent;
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid rgba(255,255,255,0.5);
+        box-shadow: none;
+        transition: 0.5s all ease-in-out;
+        color: #ffffff;
+        &::-webkit-input-placeholder{
+          color: rgba(255,255,255,0.5);
+        }
+        &:focus, &:active {
+          border-bottom-color: #ffffff;
+          &+ .icon {
+            color: #ffffff;
+          }
+        }
+      }
+      .icon {
+        transition: 0.5s all ease-in-out;
+        color: rgba(255,255,255,0.5);
+      }
+    }
+  }
+}
+
+.view {
+  &.with-adminbar {
+    padding-top: 52px;
+    nav.navbar:not(.adminbar) + main {
+      padding-top: 52px;
+    }
+    nav.is-fixed-top {
+      top: 52px;
+    }
+    nav.adminbar {
+      top: 0;
+      border-bottom: 0.1px solid #cccccc;
+    }
+  }
+  &.without-adminbar {
+    nav.is-fixed-top {
+      top: 0;
+    }
+    nav.navbar:not(.adminbar) + main {
+      padding-top: 52px;
+    }
+  }
 }

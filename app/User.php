@@ -36,4 +36,13 @@ class User extends Authenticatable
         return $this->isRoot() || $this->role === 'ADMIN';
     }
 
+    public function hasAdminbar() {
+        if(!$this->role) return false;
+        $roles = Settings::get('roles_with_adminbar');
+        if(!$roles) {
+            $roles = ['CREATOR', 'ADMIN'];
+        }
+        return in_array($this->role, $roles);
+    }
+
 }

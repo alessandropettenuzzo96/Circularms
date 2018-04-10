@@ -10,8 +10,13 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    @yield('before-vue-init')
+    <script>
+        //window.csrf = {{-- csrf_token() --}}
+    </script>
+
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/admin.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -21,10 +26,24 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <main class="py-5">
-            @yield('content')
-        </main>
-    </div>
+<div id="app">
+    @if(Auth::check() && auth()->user()->hasAdminbar())
+        <div class="view with-adminbar">
+            @include('partials.navbars.navbar_admin')
+            @yield('navbar')
+            <main>
+                @yield('content')
+            </main>
+        </div>
+    @else
+        <div class="view without-adminbar">
+            @yield('navbar')
+            <main>
+                @yield('content')
+            </main>
+        </div>
+    @endif
+</div>
 </body>
 </html>
+
